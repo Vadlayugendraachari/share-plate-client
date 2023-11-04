@@ -10,31 +10,33 @@ const Navbar = () => {
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                        <li><a>Item 1</a></li>
-                        <li><a>Item 1</a></li>
-                        <li><a>Item 3</a></li>
+                        <li className='mx-4'><NavLink className='text-[1rem]' to='/'>Home</NavLink></li>
+                        <li className='mx-4'><NavLink className='text-[1rem]' to='/avialabe'>Available Foods</NavLink></li>
+                        <li className='mx-4'><NavLink className='text-[1rem]' to='/add'>Add Food</NavLink></li>
+                        <li className='mx-4'><NavLink className='text-[1rem]' to='/manage'>Manage My Foods</NavLink></li>
+                        <li className='mx-4'><NavLink className='text-[1rem]' to='/myfood'>My Food Request</NavLink></li>
                     </ul>
                 </div>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    <li className='mx-4'><NavLink to='/'>Item 1</NavLink></li>
-                    <li className='mx-4'><NavLink to='/'>Item 1</NavLink></li>
-                    <li className='mx-4'><NavLink to='/'>Item 1</NavLink></li>
+                    <li className='mx-4'><NavLink className='text-[1rem]' to='/'>Home</NavLink></li>
+                    <li className='mx-4'><NavLink className='text-[1rem]' to='/avialabe'>Available Foods</NavLink></li>
+                    <li className='mx-4'><NavLink className='text-[1rem]' to='/add'>Add Food</NavLink></li>
                 </ul>
-                <a className="btn btn-ghost normal-case text-xl">
-                <div>
-                  <p>SharePlate</p>
-                </div>
-                </a>
+                <NavLink to='/' className="btn btn-ghost normal-case text-xl">
+                    <div className='flex flex-col justify-center items-center'>
+                    <img className='w-1/2' src='https://i.ibb.co/SXQgrk2/sitelogo.png' alt='logo'/>
+                        <p className='logo-text'>SharePlate</p>
+                    </div>
+                </NavLink>
                 <ul className="menu menu-horizontal px-1">
-                    <li className='mx-4'><NavLink to='/'>Item 1</NavLink></li>
-                    <li className='mx-4'><NavLink to='/'>Item 1</NavLink></li>
-                    <li className='mx-4'><NavLink to='/'>Item 1</NavLink></li>
+                    <li className='mx-4'><NavLink className='text-[1rem]' to='/manage'>Manage My Foods</NavLink></li>
+                    <li className='mx-4'><NavLink className='text-[1rem]' to='/myfood'>My Food Request</NavLink></li>
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Button</a>
+                <NavLink className="btn">Login</NavLink>
             </div>
         </div>
     );
