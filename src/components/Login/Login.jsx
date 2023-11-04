@@ -1,4 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion"
+import { ToastContainer, toast } from 'react-toastify';
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
@@ -10,6 +11,18 @@ const Login = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
+
+        if (password.length < 6) {
+            toast.error("Password length must have to more than 6");
+            return;
+        } else if (!/[A-Z]/.test(password)) {
+            toast.error("Password must have atleast one Capital chracter");
+            return;
+        } else if (!/.*[!@#$%^&*()_+{}[\]:;<>,.?~`|\\/"'=-].*/.test(password)) {
+            toast.error("Password must have atleast one Special chracter");
+            return;
+        }
+
 
         signInUserWithEmailandPassword(email, password)
             .then(res => {
@@ -92,6 +105,19 @@ const Login = () => {
                     </div>
                 </div>
             </motion.div>
+            <ToastContainer
+            position="top-right"
+            autoClose={1000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+        />
+        <ToastContainer />
         </AnimatePresence>
     );
 };
