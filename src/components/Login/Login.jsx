@@ -5,7 +5,10 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 const Login = () => {
-    const { signInUserWithEmailandPassword } = useContext(AuthContext);
+    const { signInUserWithEmailandPassword, signUpUserWithGoogle } = useContext(AuthContext);
+    const handleGooleSignIn = ()=>{
+        signUpUserWithGoogle();
+    }
     const handleLoginForm = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -22,7 +25,7 @@ const Login = () => {
             toast.error("Password must have atleast one Special chracter");
             return;
         }
-
+ 
 
         signInUserWithEmailandPassword(email, password)
             .then(res => {
@@ -59,7 +62,7 @@ const Login = () => {
                 initial={{ height: 0 }}
                 animate={{ height: "100%" }}
                 exit={{ x: window.innerHeight }}
-                className="relative overflow-hidden" style={loginBg}>
+                className="relative overflow-hidden mt-8" style={loginBg}>
                 <div className="hero-overlay bg-[#0000007F]">
                     <div style={customBg} className="mx-auto max-w-screen-md py-12 px-4 sm:px-6 md:max-w-screen-xl md:py-20 lg:py-32 md:px-8">
                         <motion.div
@@ -74,7 +77,7 @@ const Login = () => {
                                 Welcome back to our food-sharing family. Log in and continue spreading the joy of sharing meals with your community.
                             </p>
                             <div className="mt-8 grid">
-                                <button type="button" className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm sm:p-4">
+                                <button onClick={handleGooleSignIn} type="button" className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm sm:p-4">
                                     <svg className="w-4 h-auto" width="46" height="47" viewBox="0 0 46 47" fill="none">
                                         <path d="M46 24.0287C46 22.09 45.8533 20.68 45.5013 19.2112H23.4694V27.9356H36.4069C36.1429 30.1094 34.7347 33.37 31.5957 35.5731L31.5663 35.8669L38.5191 41.2719L38.9885 41.3306C43.4477 37.2181 46 31.1669 46 24.0287Z" fill="#4285F4" />
                                         <path d="M23.4694 47C29.8061 47 35.1161 44.9144 39.0179 41.3012L31.625 35.5437C29.6301 36.9244 26.9898 37.8937 23.4987 37.8937C17.2793 37.8937 12.0281 33.7812 10.1505 28.1412L9.88649 28.1706L2.61097 33.7812L2.52296 34.0456C6.36608 41.7125 14.287 47 23.4694 47Z" fill="#34A853" />
@@ -89,11 +92,11 @@ const Login = () => {
                             <form onSubmit={handleLoginForm}>
                                 <div className="mb-4">
                                     <label className="block text-sm font-medium dark:text-white"><span className="sr-only">Email address</span></label>
-                                    <input type="email" name="email" id="hs-hero-email-2" className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 sm:p-4 " placeholder="Email address" />
+                                    <input type="email" name="email" className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 sm:p-4 " placeholder="Email address" />
                                 </div>
                                 <div className="mb-4">
                                     <label className="block text-sm font-medium dark:text-white"><span className="sr-only">Password</span></label>
-                                    <input type="password" name="password" id="hs-hero-password-2" className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 sm:p-4 " placeholder="Password" />
+                                    <input type="password" name="password" className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 sm:p-4 " placeholder="Password" />
                                 </div>
                                 <div className="grid">
                                     <button type="submit" className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800 sm:p-4">Login</button>

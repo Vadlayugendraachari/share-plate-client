@@ -1,7 +1,18 @@
+import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+import { AuthContext } from '../../Provider/AuthProvider';
 import './Nav.css';
-
+import Swal from 'sweetalert2';
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut();
+        Swal.fire(
+            'You successfuly Loged Out!',
+            'success'
+        )
+    }
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -26,7 +37,7 @@ const Navbar = () => {
                 </ul>
                 <NavLink to='/' className="btn btn-ghost normal-case text-xl">
                     <div className='flex flex-col justify-center items-center'>
-                    <img className='w-1/2' src='https://i.ibb.co/SXQgrk2/sitelogo.png' alt='logo'/>
+                        <img className='w-1/2' src='https://i.ibb.co/SXQgrk2/sitelogo.png' alt='logo' />
                         <p className='logo-text'>SharePlate</p>
                     </div>
                 </NavLink>
@@ -36,7 +47,17 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <NavLink to='/login' className="btn">Login</NavLink>
+                {
+                    user &&
+                    <div className="avatar mx-4">
+                        <div className="w-12 mask mask-squircle">
+                            <img src={user.photoURL} />
+                        </div>
+                    </div>
+                }
+                {
+                    user ? <button onClick={handleLogOut} className="btn">Log Out</button> : <NavLink to='/login' className="btn">Login</NavLink>
+                }
             </div>
         </div>
     );
