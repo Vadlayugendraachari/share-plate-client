@@ -1,3 +1,4 @@
+import { motion, AnimatePresence } from 'framer-motion';
 import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
@@ -14,7 +15,11 @@ const Navbar = () => {
         )
     }
     return (
-        <div className="navbar bg-base-100">
+        <motion.div
+        initial={{ x: 300, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        exit={{ x: -300, opacity: 0 }}
+        className="navbar bg-base-100">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -59,7 +64,7 @@ const Navbar = () => {
                     user ? <button onClick={handleLogOut} className="btn">Log Out</button> : <NavLink to='/login' className="btn">Login</NavLink>
                 }
             </div>
-        </div>
+        </motion.div>
     );
 };
 
