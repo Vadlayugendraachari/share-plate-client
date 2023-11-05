@@ -63,8 +63,8 @@ const Login = () => {
                 animate={{ height: "100%" }}
                 exit={{ x: window.innerHeight }}
                 className="relative overflow-hidden mt-8" style={loginBg}>
-                <div className="hero-overlay bg-[#0000007F]">
-                    <div style={customBg} className="mx-auto max-w-screen-md py-12 px-4 sm:px-6 md:max-w-screen-xl md:py-20 lg:py-32 md:px-8">
+                <div className="hero-overlay bg-[#0000007F]" style={customBg} >
+                    <div className="py-12 px-4 sm:px-6 md:py-20 lg:py-32 md:px-8">
                         <motion.div
                             initial={{ x: 300, opacity: 0 }}
                             animate={{ x: 0, opacity: 1 }}

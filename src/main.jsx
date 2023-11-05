@@ -6,12 +6,17 @@ import "./index.css";
 import Login from './components/Login/Login.jsx';
 import AuthProvider from './Provider/AuthProvider.jsx';
 import Registration from './components/Registration/Registration.jsx';
+import Home from './components/Home/Home.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,
     children: [
+      {
+        path:'/',
+        element: <Home></Home>
+      },
       {
         path: '/login',
         element: <Login></Login>
