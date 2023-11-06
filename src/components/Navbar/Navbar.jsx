@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useContext } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import './Nav.css';
 import Swal from 'sweetalert2';
@@ -40,18 +40,18 @@ const Navbar = () => {
                     <li className='mx-4'><NavLink className='navLink text-[1rem]' to='/avialabe'>Available Foods</NavLink></li>
                     <li className='mx-4'><NavLink className='navLink text-[1rem]' to='/add'>Add Food</NavLink></li>
                 </ul>
-                <NavLink to='/' className="btn btn-ghost normal-case text-xl">
+                <Link to='/' className="logoBg btn btn-ghost normal-case text-xl">
                     <div className='flex flex-col justify-center items-center'>
                         <img className='w-1/2' src='https://i.ibb.co/SXQgrk2/sitelogo.png' alt='logo' />
                         <p className='logo-text'>SharePlate</p>
                     </div>
-                </NavLink>
+                </Link>
                 <ul className="menu menu-horizontal px-1">
                     <li className='mx-4'><NavLink className='navLink text-[1rem]' to='/manage'>Manage My Foods</NavLink></li>
                     <li className='mx-4'><NavLink className='navLink text-[1rem]' to='/myfood'>My Food Request</NavLink></li>
                 </ul>
             </div>
-            <div className="navbar-end">
+            <div className="navbar-end flex lg:flex-col xl:flex-row gap-4">
                 {
                     user &&
                     <div className="avatar mx-4">

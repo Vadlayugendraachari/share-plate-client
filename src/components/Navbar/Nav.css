@@ -6,6 +6,14 @@
     font-weight: bold;
 }
 .navLink{
-    background: #69D850;
-    color: white;
+    /* background: #69D850; */
+    background: transparent;
+    color: black;
+}
+logoBg{
+    background:transparent !important;
+}
+.active{
+    background: tomato !important;
+    color: black !important;
 }

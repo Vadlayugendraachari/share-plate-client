@@ -1,14 +1,13 @@
 import { NavLink } from "react-router-dom";
-
+import './Footer.css'
 
 const Footer = () => {
     return (
-        <footer className="bg-black">
+        <footer className="bg-black mt-[8rem]">
             <div className="max-w-6xl mx-auto py-10 px-4 sm:px-6 lg:px-8 lg:pt-20">
-
                 <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
                     <div className="col-span-full lg:col-span-1 text-center">
-                        <NavLink to='/' className="btn btn-ghost normal-case text-xl">
+                        <NavLink id="footerLogo" to='/' className="btn btn-ghost normal-case text-xl">
                             <div className='flex flex-col justify-center items-center'>
                                 <img className='w-1/2' src='https://i.ibb.co/SXQgrk2/sitelogo.png' alt='logo' />
                                 <p className='logo-text text-white'>SharePlate</p>
@@ -19,11 +18,11 @@ const Footer = () => {
                     <div className="col-span-1">
                         <h4 className="font-semibold text-gray-100">Product</h4>
                         <div className="mt-3 grid space-y-3">
-                            <p><NavLink className="inline-flex gap-x-2 text-gray-400 hover:text-gray-200" href="#">Home</NavLink></p>
-                            <p><NavLink className="inline-flex gap-x-2 text-gray-400 hover:text-gray-200" href="#">Available Foods</NavLink></p>
-                            <p><NavLink className="inline-flex gap-x-2 text-gray-400 hover:text-gray-200" href="#">Add Food</NavLink></p>
-                            <p><NavLink className="inline-flex gap-x-2 text-gray-400 hover:text-gray-200" href="#">Manage Food</NavLink></p>
-                            <p><NavLink className="inline-flex gap-x-2 text-gray-400 hover:text-gray-200" href="#">My Food Request</NavLink></p>
+                            <p><NavLink id="footerLinks" className="inline-flex gap-x-2 text-gray-400 hover:text-gray-200" href="#">Home</NavLink></p>
+                            <p><NavLink id="footerLinks" className="inline-flex gap-x-2 text-gray-400 hover:text-gray-200" href="#">Available Foods</NavLink></p>
+                            <p><NavLink id="footerLinks" className="inline-flex gap-x-2 text-gray-400 hover:text-gray-200" href="#">Add Food</NavLink></p>
+                            <p><NavLink id="footerLinks" className="inline-flex gap-x-2 text-gray-400 hover:text-gray-200" href="#">Manage Food</NavLink></p>
+                            <p><NavLink id="footerLinks" className="inline-flex gap-x-2 text-gray-400 hover:text-gray-200" href="#">My Food Request</NavLink></p>
                         </div>
                     </div>
                     <div className="col-span-1">
