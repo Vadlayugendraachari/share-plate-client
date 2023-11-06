@@ -13,13 +13,10 @@ const AddFood = () => {
         const donator_image = form.donatorImage.value;
         const donator = form.donator.value;
         const donator_email = form.donatorMail.value;
-        const quantityString = form.quantity.value;
-        //converting the string quanity to integer
-        const quantity = parseInt(quantityString, 10);
+        const quantity = parseInt(form.quantity.value, 10);
         const expire_date = form.date.value;
         const pickup_location = form.location.value;
-        const expire_time_string = form.time.value;
-        const expire_time = parseInt(expire_time_string);
+        const expire_time = parseInt(form.time.value);
         const additional_notes = form.note.value;
    
 

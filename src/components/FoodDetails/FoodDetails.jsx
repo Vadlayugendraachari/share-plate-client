@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { motion, AnimatePresence } from "framer-motion"
+import Swal from "sweetalert2";
 const FoodDetails = () => {
 
     const foodDetails = useLoaderData();
@@ -26,12 +27,27 @@ const FoodDetails = () => {
         const expire_date = form.expireDate.value;
         const pickup_location = form.pickPoint.value;
         const additional_notes = form.note.value;
-        const donation_amount = form.donationMoney.value;
+        const donation_amount = parseInt(form.donationMoney.value);
       
         const requested_food = {food_image, food_name, food_id,donator_email,donator,user_email,requested_date
             ,pickup_location,expire_date,additional_notes,donation_amount};
 
-
+         fetch('http://localhost:2003/requestedfood',{
+            method:'POST',
+            headers:{
+                'content-type' : 'application/json'
+            },body: JSON.stringify(requested_food)
+         })
+         .then(res => res.json())
+         .then(data => {
+            if(data.insertedId){
+                Swal.fire(
+                    'Congratulation!',
+                    'Your Request was successful',
+                    'success'
+                )
+            }
+         })   
     
 
     }

@@ -11,14 +11,15 @@ const FeaturesFoods = () => {
             .then(data => setFeaFoods(data))
     }, [])
     return (
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl mx-auto my-8">
+            <h1 className="text-center text-3xl font-bold underline my-4">Our Featured Foods</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {
                     feaFoods.map(feafood => <FeatureFood feafood={feafood} key={feafood._id}></FeatureFood>)
                 }
             </div>
-            <div className="text-center">
-            <Link to='avialabe' className="btn btn-ghost bg-[#3a9691] text-white">Show All</Link>
+            <div className="text-center my-8">
+                <Link to='avialabe' className="btn btn-ghost bg-[#3a9691] text-white">Show All</Link>
             </div>
         </div>
     );
