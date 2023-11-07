@@ -6,7 +6,7 @@ import './Nav.css';
 import Swal from 'sweetalert2';
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
-
+    const email = user?.email;
     const handleLogOut = () => {
         logOut();
         Swal.fire(
@@ -16,10 +16,10 @@ const Navbar = () => {
     }
     return (
         <motion.div
-        initial={{ x: 300, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        exit={{ x: -300, opacity: 0 }}
-        className="navbar bg-base-100">
+            initial={{ x: 300, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: -300, opacity: 0 }}
+            className="navbar bg-base-100">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -47,7 +47,7 @@ const Navbar = () => {
                     </div>
                 </Link>
                 <ul className="menu menu-horizontal px-1">
-                    <li className='mx-4'><NavLink className='navLink text-[1rem]' to='/manage'>Manage My Foods</NavLink></li>
+                    <li className='mx-4'><Link className='navLink text-[1rem]' to="/manage">Manage My Foods</Link></li>
                     <li className='mx-4'><NavLink className='navLink text-[1rem]' to='/myfood'>My Food Request</NavLink></li>
                 </ul>
             </div>
