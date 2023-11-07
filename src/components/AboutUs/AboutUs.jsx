@@ -47,7 +47,7 @@ const AboutUs = () => {
                         <p>Thank you for being a part of our journey. Together, we can share the goodness, one plate at a time.</p>
                         <a
                             href="#"
-                            className="mt-8 inline-block rounded bg-[#3a9691] px-12 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-yellow-400"
+                            className="mt-8 inline-block rounded bg-indigo-500 px-12 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 "
                         >
                             Get Started Today
                         </a>

@@ -58,7 +58,7 @@ const Banner = () => {
                                         <p className="text-lg text-white">Welcome to <span className='text-[tomato]'><b>SharePlate</b></span>, where the joy of culinary sharing comes to life. Our community is a flavorful mosaic of cultures and stories, all united by the love of sharing food. Explore delectable recipes, culinary adventures, and heartfelt connections. Whether you&aposre an experienced chef or an eager cook, our platform is your canvas to share, discover, and connect with fellow food enthusiasts. Join us in celebrating generosity, deliciousness, and the beauty of sharing a meal.</p>
                                     </div>
                                     <div className="text-center">
-                                        <NavLink to='/reg' className='btn btn-grad hover:bg-[#3a9691] '>
+                                        <NavLink to='/reg' className='btn btn-grad hover:bg-indigo-700 '>
                                             Join Today
                                             <svg className="w-2.5 h-2.5" width="16" height="16" viewBox="0 0 16 16" fill="none">
                                                 <path d="M5.27921 2L10.9257 7.64645C11.1209 7.84171 11.1209 8.15829 10.9257 8.35355L5.27921 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
@@ -93,7 +93,7 @@ const Banner = () => {
                                         <p className="text-lg text-white">At <span className='text-[tomato]'>SharePlate</span>, we believe in the power of food to bring people together and make a positive impact. Join our mission to share not just meals, but also kindness and support. Together, we can make a difference in the lives of those in need. Whether it&aposs sharing surplus food, supporting local charities, or organizing food drives, every contribution matters. Help us create a world where no one goes hungry, one meal at a time.</p>
                                     </div>
                                     <div className="text-center">
-                                        <NavLink to='/reg' className='btn btn-grad hover:bg-[#3a9691] '>
+                                        <NavLink to='/reg' className='btn btn-grad hover:bg-indigo-700 '>
                                             Join Today
                                             <svg className="w-2.5 h-2.5" width="16" height="16" viewBox="0 0 16 16" fill="none">
                                                 <path d="M5.27921 2L10.9257 7.64645C11.1209 7.84171 11.1209 8.15829 10.9257 8.35355L5.27921 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
@@ -128,7 +128,7 @@ const Banner = () => {
                                         <p className="text-lg text-white">At <span className='text-[tomato]'>SharePlate</span>, we&aposre dedicated to combating food waste. Each day, tons of good food are discarded while others go hungry. Together, we can make a difference by sharing surplus food. Join our mission to reduce waste and nourish those in need. Let&aposs create a more sustainable world, one meal at a time.</p>
                                     </div>
                                     <div className="text-center">
-                                        <NavLink to='/reg' className='btn btn-grad hover:bg-[#3a9691] '>
+                                        <NavLink to='/reg' className='btn btn-grad hover:bg-indigo-700 '>
                                             Join Today
                                             <svg className="w-2.5 h-2.5" width="16" height="16" viewBox="0 0 16 16" fill="none">
                                                 <path d="M5.27921 2L10.9257 7.64645C11.1209 7.84171 11.1209 8.15829 10.9257 8.35355L5.27921 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />

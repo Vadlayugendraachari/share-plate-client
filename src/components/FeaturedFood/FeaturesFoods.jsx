@@ -19,7 +19,7 @@ const FeaturesFoods = () => {
                 }
             </div>
             <div className="text-center my-8">
-                <Link to='avialabe' className="btn btn-ghost bg-[#3a9691] text-white">Show All</Link>
+                <Link to='avialabe' className="btn btn-ghost bg-indigo-500 text-white hover:bg-indigo-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ">Show All</Link>
             </div>
         </div>
     );

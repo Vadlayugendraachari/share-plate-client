@@ -45,8 +45,8 @@ const AddFood = () => {
         <div className="relative overflow-hidden">
             <div className="mx-auto max-w-screen-md px-4 sm:px-6 md:max-w-screen-xl md:py-20 lg:py-32 md:px-8">
                 <div className="w-full md:w-1/2 mx-auto">
-                    <h1 className="text-3xl text-gray-800 font-bold md:text-4xl md:leading-tight lg:text-5xl lg:leading-tight dark:text-gray-200">
-                        Solving problems for every <span className="text-blue-600 dark:text-blue-500">team</span>
+                    <h1 className="text-3xl text-black font-bold md:text-4xl md:leading-tight lg:text-5xl lg:leading-tight">
+                    Be a Food Hero:  <span className="text-[tomato]">Add Your Extra Food Here</span>
                     </h1>
                     <form onSubmit={handleReginForm}>
                         <div className="mb-4">
@@ -90,7 +90,7 @@ const AddFood = () => {
                             <input type="text" name="donatorMail" value={user?.email} className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 sm:p-4 " readOnly />
                         </div>
                         <div className="grid">
-                            <button type="submit" className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800 sm:p-4">Add Food</button>
+                            <button type="submit" className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-indigo-500 text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800 sm:p-4">Add Food</button>
                         </div>
                     </form>
                 </div>

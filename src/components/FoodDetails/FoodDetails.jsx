@@ -144,7 +144,7 @@ const FoodDetails = () => {
                         </dd>
                     </div>
                     <div className="text-center">
-                        <button type="button" className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm " data-hs-overlay="#hs-modal-signin">
+                        <button type="button" className="py-3 my-4 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-indigo-500 text-white hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-all text-sm " data-hs-overlay="#hs-modal-signin">
                             Open modal
                         </button>
                     </div>
@@ -222,7 +222,7 @@ const FoodDetails = () => {
                                                         <input type="number" name="donationMoney" placeholder="0$" className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm shadow-[#0000001A] shadow-md" required />
                                                     </div>
                                                 </div>
-                                                <button type="submit" className="py-3 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm">Request</button>
+                                                <button type="submit" className="py-3 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-indigo-500 text-white hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm">Request</button>
                                             </div>
                                         </form>
                                     </div>
