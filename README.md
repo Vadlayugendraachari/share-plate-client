@@ -1,8 +1,10 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a community-food-sharing website
+1. where anyone can donate their food if they want.
+2. Anyone can request food if he needs it.
+3. Anyone can add their food on the website for other
+4. This website has a login and registration system.
+5. This is a MERN Stack Project
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Lice LInk : https://community-food-sharing-7180e.web.app/
