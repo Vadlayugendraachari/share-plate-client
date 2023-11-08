@@ -2,6 +2,7 @@ import { useContext, useEffect } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 import Swal from "sweetalert2";
+import PageTitle from "../PageTitle";
 const AddFood = () => {
     const { user } = useContext(AuthContext);
 
@@ -43,6 +44,7 @@ const AddFood = () => {
     }
     return (
         <div className="relative overflow-hidden">
+        <PageTitle title='SharePlate | Add Food'></PageTitle>
             <div className="mx-auto max-w-screen-md px-4 sm:px-6 md:max-w-screen-xl md:py-20 lg:py-32 md:px-8">
                 <div className="w-full md:w-1/2 mx-auto">
                     <h1 className="text-3xl text-black font-bold md:text-4xl md:leading-tight lg:text-5xl lg:leading-tight">

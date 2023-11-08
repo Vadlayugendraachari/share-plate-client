@@ -4,11 +4,20 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import PageTitle from "../PageTitle";
+import axios from "axios";
 const Login = () => {
-    const { signInUserWithEmailandPassword, signUpUserWithGoogle } = useContext(AuthContext);
-    const handleGooleSignIn = ()=>{
-        signUpUserWithGoogle();
+    const { signInUserWithEmailandPassword, signUpUserWithGoogle, user } = useContext(AuthContext);
+    const handleGooleSignIn = () => {
+        signUpUserWithGoogle()
+            .then(res => {
+                console.log(res)
+                // const email = {res.email}
+                // console.log(email)
+                axios.post('http://localhost:2003/jwt', res.user.email ,{ withCredentials: true },)
+            })
     }
+
     const handleLoginForm = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -25,7 +34,7 @@ const Login = () => {
             toast.error("Password must have atleast one Special chracter");
             return;
         }
- 
+
 
         signInUserWithEmailandPassword(email, password)
             .then(res => {
@@ -58,6 +67,7 @@ const Login = () => {
     }
     return (
         <AnimatePresence>
+            <PageTitle title='SharePlate | Login'></PageTitle>
             <motion.div
                 initial={{ height: 0 }}
                 animate={{ height: "100%" }}
@@ -109,18 +119,18 @@ const Login = () => {
                 </div>
             </motion.div>
             <ToastContainer
-            position="top-right"
-            autoClose={1000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-            theme="dark"
-        />
-        <ToastContainer />
+                position="top-right"
+                autoClose={1000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="dark"
+            />
+            <ToastContainer />
         </AnimatePresence>
     );
 };

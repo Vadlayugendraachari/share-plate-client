@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import PageTitle from "../PageTitle";
 const Registration = () => {
     const { signUpWithEmailandPassword, signUpUserWithGoogle, updateUser, user } = useContext(AuthContext);
     //Sign In With Google
@@ -51,6 +52,7 @@ const Registration = () => {
     }
     return (
         <AnimatePresence>
+        <PageTitle title='SharePlate || Registration'></PageTitle>
             <motion.div
                 initial={{ height: 0 }}
                 animate={{ height: "100%" }}

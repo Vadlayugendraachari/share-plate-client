@@ -8,6 +8,7 @@ import { css } from "@emotion/react";
 import Swal from 'sweetalert2';
 import ManageSingleFoodRequest from './ManageSingleFoodRequest';
 import { Link } from 'react-router-dom';
+import PageTitle from '../PageTitle';
 
 const ManageFoods = () => {
     const [loading, setLoading] = useState(true);
@@ -139,6 +140,7 @@ const ManageFoods = () => {
  
     return (
         <div className='max-w-6xl mx-auto my-8'>
+        <PageTitle title='SharePlate | Manage My Foods'></PageTitle>
             <div>
                 <div>
                     <div className=' overflow-x-auto'>

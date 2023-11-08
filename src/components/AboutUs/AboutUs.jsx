@@ -1,3 +1,4 @@
+import PageTitle from "../PageTitle";
 
 
 const AboutUs = () => {

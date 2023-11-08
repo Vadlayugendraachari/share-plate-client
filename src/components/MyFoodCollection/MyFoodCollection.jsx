@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import PageTitle from "../PageTitle";
 import MyFoodRequest from "./MyFoodRequest";
 
 const MyFoodCollection = () => {
@@ -21,6 +22,7 @@ const MyFoodCollection = () => {
     }, [userEmail])
     return (
        <div className="max-w-6xl mx-auto">
+       <PageTitle title='SharePlate | My Food Requests' ></PageTitle>
        {
         myfood.map(myfood => <MyFoodRequest myFood={myfood} key={myfood._id}></MyFoodRequest>)
        }

@@ -39,6 +39,13 @@ const AuthProvider = ({ children }) => {
         const unSubScribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser)
             setLoading(false)
+            // if(currentUser){
+            //     const loggdinUser = {email : currentUser.email};
+            //     axios.post('http://localhost:2003/' ,loggdinUser, {withCredentials: true})
+            //     .then(res => {
+            //         console.log(res.data)
+            //     })
+            // }
         })
         return () => unSubScribe();
     }, [])
