@@ -42,7 +42,7 @@ const Banner = () => {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         style={sliderBg1}>
-                        <div className="hero-overlay bg-[#0000007F]">
+                        <div className="hero-overlay bg-[#0000007F] -z-50">
                             <div className="bg-gradient-to-b from-violet-600/[.15] via-transparent" style={customBg}>
                                 <motion.div
                                     initial={{ x: -300, opacity: 0 }}
