@@ -30,7 +30,7 @@ const ManageSingleFoodRequest = () => {
                 </div>
 
                 <div className="grid grid-cols-1 gap-1 p-3 sm:grid-cols-3 sm:gap-4">
-             
+                  <button>Pending</button>
                 </div>
             </dl>
         </div>

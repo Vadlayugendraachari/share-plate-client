@@ -1,9 +1,9 @@
-
-
+import './App.css'
+import errGif from './assets/error.gif'
 const Errorpage = () => {
     return (
-        <div>
-            
+        <div className='errPage'>
+           <div className='errBg'></div>
         </div>
     );
 };

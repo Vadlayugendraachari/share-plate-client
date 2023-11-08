@@ -36,12 +36,7 @@ const ManageFoods = () => {
             })
     }, [uerEmail])
 
-    const [requestedFood, setRequestedFood] = useState([]);
-    useEffect(()=>{
-        fetch('http://localhost:2003/requestedfood/')
-        .then(res => res.json())
-        .then((data) => setRequestedFood(data))
-    },[])
+  
 
     const data = useMemo(() => manageFood, [manageFood]);
     const columns = useMemo(() => [

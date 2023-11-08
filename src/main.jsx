@@ -13,11 +13,14 @@ import PrivateRoutes from './Private/PrivateRoutes.jsx';
 import AddFood from './components/AddFood/AddFood.jsx';
 import ManageFood from './components/ManageFoods/ManageFoods.jsx';
 import ManageSingleFoodRequest from './components/ManageFoods/ManageSingleFoodRequest.jsx';
+import Errorpage from './Errorpage.jsx';
+import MyFoodCollection from './components/MyFoodCollection/MyFoodCollection.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,
+    errorElement: <Errorpage></Errorpage> ,
     children: [
       {
         path:'/',
@@ -34,6 +37,10 @@ const router = createBrowserRouter([
       {
         path:'/manage',
         element: <PrivateRoutes><ManageFood></ManageFood></PrivateRoutes>,
+      },
+      {
+        path:'/myfood',
+        element: <PrivateRoutes><MyFoodCollection></MyFoodCollection></PrivateRoutes>,
       },
       {
         path:'/managesingle/:id',
