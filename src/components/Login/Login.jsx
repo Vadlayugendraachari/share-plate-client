@@ -14,7 +14,7 @@ const Login = () => {
                 console.log(res)
                 // const email = {res.email}
                 // console.log(email)
-                axios.post('http://localhost:2003/jwt', res.user.email ,{ withCredentials: true },)
+                axios.post('https://community-food-sharing-server-ruddy.vercel.app/jwt', res.user.email ,{ withCredentials: true },)
             })
     }
 

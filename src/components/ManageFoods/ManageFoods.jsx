@@ -25,7 +25,7 @@ const ManageFoods = () => {
     const [manageFood, setManageFood] = useState([]);
   
     useEffect(() => {
-        axios.get(`http://localhost:2003/manageuserfood?email=${uerEmail}`)
+        axios.get(`https://community-food-sharing-server-ruddy.vercel.app/manageuserfood?email=${uerEmail}`)
             .then(res => {
                 // console.log(res.data)
                 setManageFood(res.data)
@@ -91,7 +91,7 @@ const ManageFoods = () => {
             'success'
         )
         if (editedData) {
-            axios.put(`http://localhost:2003/manageuserfood?email=${editedData.donator_email}`, editedData)
+            axios.put(`https://community-food-sharing-server-ruddy.vercel.app/manageuserfood?email=${editedData.donator_email}`, editedData)
                 .then(res => {
                     console.log(res, 'data updated succesfuly')
                 })
@@ -112,7 +112,7 @@ const ManageFoods = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 const email = user.email;
-                axios.delete(`http://localhost:2003/manageuserfood?email=${email}`, email)
+                axios.delete(`https://community-food-sharing-server-ruddy.vercel.app/manageuserfood?email=${email}`, email)
                     .then(data => {
                         if (data.deletedCount > 0) {
                             Swal.fire(
@@ -190,7 +190,7 @@ const ManageFoods = () => {
                                                     <Link to={`/managesingle/${row.original._id}`}>
                                                         <button
                                                             type='button'
-                                                            className="btn inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700 mx-2"
+                                                            className="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700 mx-2"
                                                         >
                                                             Manage
                                                         </button>

@@ -24,7 +24,7 @@ const AddFood = () => {
         const newFood = { food_name, food_image, donator_image, donator, donator_email, quantity, expire_date, pickup_location, expire_time, additional_notes }
 
 
-        fetch('http://localhost:2003/foods',{
+        fetch('https://community-food-sharing-server-ruddy.vercel.app/foods',{
             method:'POST',
             headers:{
                 'content-type': 'application/json'

@@ -14,6 +14,7 @@ const FoodDetails = () => {
     const requestedDate = `${currentYear}-${currentMonth}-${currentDate}`
     console.log(user)
 
+    console.log(foodDetails)
     const handleRequest = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -36,7 +37,7 @@ const FoodDetails = () => {
             , pickup_location, expire_date, additional_notes, donation_amount
         };
 
-        fetch('http://localhost:2003/requestedfood', {
+        fetch('https://community-food-sharing-server-ruddy.vercel.app/requestedfood', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -149,7 +150,7 @@ const FoodDetails = () => {
                     </div>
                     <div className="text-center">
                         <button type="button" className="py-3 my-4 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-indigo-500 text-white hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-all text-sm " data-hs-overlay="#hs-modal-signin">
-                            Open modal
+                            Request
                         </button>
                     </div>
 

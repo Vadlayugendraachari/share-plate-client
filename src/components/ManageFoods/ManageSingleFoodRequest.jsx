@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useLoaderData } from "react-router-dom";
 
 const ManageSingleFoodRequest = () => {
@@ -5,7 +6,9 @@ const ManageSingleFoodRequest = () => {
     const singleReuestedFood = useLoaderData();
 
     console.log(singleReuestedFood)
-
+const handleStatus = (e) =>{
+     axios.post('')
+}
     return (
         <div className="flow-root rounded-lg border border-gray-300 py-3 shadow-sm max-w-6xl mx-auto my-8">
             <dl className="-my-3 divide-y divide-gray-300 text-sm">
@@ -30,7 +33,7 @@ const ManageSingleFoodRequest = () => {
                 </div>
 
                 <div className="grid grid-cols-1 gap-1 p-3 sm:grid-cols-3 sm:gap-4">
-                  <button>Pending</button>
+                  <button onClick={() => handleStatus(singleReuestedFood._id)} className="btn bg-indigo-500 hover:bg-indigo-700 text-white">Pending</button>
                 </div>
             </dl>
         </div>

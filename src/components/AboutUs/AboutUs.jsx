@@ -12,8 +12,8 @@ const AboutUs = () => {
                         className="relative h-64 overflow-hidden rounded-lg sm:h-80 lg:order-last lg:h-full"
                     >
                         <img
-                            alt="Party"
-                            src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+                            alt="Sharing Food"
+                            src="https://i.ibb.co/HTxXshk/pexels-fauxels-3184188.jpg"
                             className="absolute inset-0 h-full w-full object-cover"
                         />
                     </div>

@@ -51,11 +51,11 @@ const AvailableFood = ({ food }) => {
                         <div className="mt-auto flex border-t border-gray-200 divide-x divide-gray-200 dark:border-gray-700 dark:divide-gray-700">
                             {
                                 user ?
-                                    <Link to={`/foods/details/${_id}`} className="w-full py-3 px-4 inline-flex justify-center items-center gap-2 rounded-bl-[5rem] rounded-br-lg font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm sm:p-4 " href="#">
+                                    <Link to={`/foods/details/${_id}`} className="w-full py-3 px-4 inline-flex justify-center items-center gap-2  rounded-b-lg font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-indigo-600 transition-all text-sm sm:p-4 " href="#">
                                         View Details
                                     </Link>
                                     :
-                                    <Link to='/login' className="w-full py-3 px-4 inline-flex justify-center items-center gap-2 rounded-bl-[5rem] rounded-br-lg font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm sm:p-4 " href="#">
+                                    <Link to='/login' className="w-full py-3 px-4 inline-flex justify-center items-center gap-2 rounded-bl-[5rem] rounded-b-lg font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-indigo-600 transition-all text-sm sm:p-4 " href="#">
                                         View Details
                                     </Link>
                             }

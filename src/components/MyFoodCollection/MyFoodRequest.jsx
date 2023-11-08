@@ -6,7 +6,7 @@ const MyFoodRequest = ({myFood}) => {
 
     const handleCencel = (_id) => {
      
-        axios.delete(`http://localhost:2003/myfoodrequest/${_id}`)
+        axios.delete(`https://community-food-sharing-server-ruddy.vercel.app/myfoodrequest/${_id}`)
         .then(res =>{
             console.log(res.data)
             if(res.data.deletedCount > 0){
@@ -55,7 +55,7 @@ const MyFoodRequest = ({myFood}) => {
                 className="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4"
             >
                 <dd className="text-gray-700 sm:col-span-2">
-                    <button onClick={()=>handleCencel(_id)} className="btn btn-primary">Cencel Order</button>
+                    <button onClick={()=>handleCencel(_id)} className="btn bg-indigo-600 hover:bg-indigo-700 text-white">Cencel Order</button>
                 </dd>
             </div>
         </dl>

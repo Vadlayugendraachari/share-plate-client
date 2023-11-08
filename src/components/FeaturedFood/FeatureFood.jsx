@@ -51,6 +51,9 @@ const FeatureFood = ({ feafood }) => {
                                 <span className="text-[tomato] ">Food Quantity :</span> {quantity}
                             </p>
                             <p className="my-2">
+                                <span className="text-[tomato] ">Pickup Location :</span> {pickup_location}
+                            </p>
+                            <p className="my-2">
                                 <span className="text-[tomato] "> Expire Time : </span>Will be expire in {expire_time} h
                             </p>
                             <p className="my-2">

@@ -16,7 +16,7 @@ const AvailableFoods = () => {
     const [foods, setFoods] = useState([]);
     const [seachQuery, setSearchQuery] = useState('');
     const [sortOrder, setSortOrder] = useState('low to high')
-    const foodUrl = seachQuery ? `http://localhost:2003/foods?food_name=${seachQuery}` : 'http://localhost:2003/foods';
+    const foodUrl = seachQuery ? `https://community-food-sharing-server-ruddy.vercel.app/foods?food_name=${seachQuery}` : 'https://community-food-sharing-server-ruddy.vercel.app/foods';
 
     useEffect(() => {
 
