@@ -2,11 +2,13 @@ import { motion, AnimatePresence } from "framer-motion"
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Link } from "react-router-dom";
+import "./availableFood.css";
 const AvailableFood = ({ food }) => {
     const { _id, food_name, food_image, donator, donator_image, additional_notes, expire_date, expire_time, quantity
         , pickup_location } = food;
 
     const { user } = useContext(AuthContext);
+
     return (
         <AnimatePresence>
             <motion.div
@@ -15,7 +17,7 @@ const AvailableFood = ({ food }) => {
                 exit={{ x: 300, opacity: 0 }}
                 className="px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
                 <div>
-                    <div className="group flex flex-col h-full bg-white border border-gray-200 shadow-sm rounded-xl">
+                    <div className="group flex flex-col h-full bg-white border border-gray-200 shadow-sm rounded-xl" id="customCss">
                         <div className="h-52 flex flex-col justify-center items-center rounded-xl">
                             <img className="rounded-t-xl" src={food_image} />
                         </div>

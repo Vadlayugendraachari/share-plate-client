@@ -1,8 +1,8 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
-
+import './featureFood.css'
 
 const FeatureFood = ({ feafood }) => {
 
@@ -10,9 +10,24 @@ const FeatureFood = ({ feafood }) => {
         , pickup_location } = feafood;
 
     const { user } = useContext(AuthContext);
+    const customShadowCss = {
+        boxShadow: `
+          0px 1.3px 1.4px rgba(0, 0, 0, 0.015),
+          0px 2.9px 3px rgba(0, 0, 0, 0.022),
+          0px 4.8px 5.1px rgba(0, 0, 0, 0.027),
+          0px 7.2px 7.6px rgba(0, 0, 0, 0.031),
+          0px 10.4px 11px rgba(0, 0, 0, 0.035),
+          0px 14.7px 15.6px rgba(0, 0, 0, 0.039),
+          0px 20.9px 22.1px rgba(0, 0, 0, 0.043),
+          0px 30.3px 32.1px rgba(0, 0, 0, 0.048),
+          0px 46.7px 49.5px rgba(0, 0, 0, 0.055),
+          0px 83px 88px rgba(0, 0, 0, 0.07)
+        `  
+    };
+
     return (
         <AnimatePresence>
-            <div className="mx-auto shadow-[#0000001A] shadow-md bg-black h-fit rounded-2xl">
+            <div className="mx-auto bg-black h-fit rounded-2xl hover:shadow-none" id="customCss">
                 <motion.div
                     initial={{ x: -300, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}

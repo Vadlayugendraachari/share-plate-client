@@ -6,6 +6,8 @@ import { AuthContext } from '../../Provider/AuthProvider';
 import PulseLoader from 'react-spinners/PulseLoader'
 import { css } from "@emotion/react";
 import Swal from 'sweetalert2';
+import ManageSingleFoodRequest from './ManageSingleFoodRequest';
+import { Link } from 'react-router-dom';
 
 const ManageFoods = () => {
     const [loading, setLoading] = useState(true);
@@ -20,9 +22,11 @@ const ManageFoods = () => {
     border-color: red;
   `;
     const [manageFood, setManageFood] = useState([]);
+  
     useEffect(() => {
         axios.get(`http://localhost:2003/manageuserfood?email=${uerEmail}`)
             .then(res => {
+                // console.log(res.data)
                 setManageFood(res.data)
                 setLoading(false);
             })
@@ -32,6 +36,12 @@ const ManageFoods = () => {
             })
     }, [uerEmail])
 
+    const [requestedFood, setRequestedFood] = useState([]);
+    useEffect(()=>{
+        fetch('http://localhost:2003/requestedfood/')
+        .then(res => res.json())
+        .then((data) => setRequestedFood(data))
+    },[])
 
     const data = useMemo(() => manageFood, [manageFood]);
     const columns = useMemo(() => [
@@ -117,7 +127,7 @@ const ManageFoods = () => {
                         }
                         window.location.reload();
                         console.log(data)
-                       
+
                     }).catch((err) => {
                         console.log(err.message)
                     });
@@ -130,11 +140,13 @@ const ManageFoods = () => {
         });
     }
 
+
+ 
     return (
         <div className='max-w-6xl mx-auto my-8'>
             <div>
                 <div>
-                    <div className="overflow-x-auto">
+                    <div className=' overflow-x-auto'>
                         <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm" {...getTableProps}>
                             <thead className="ltr:text-left rtl:text-right">
                                 {
@@ -178,6 +190,14 @@ const ManageFoods = () => {
                                                     >
                                                         Delete
                                                     </button>
+                                                    <Link to={`/managesingle/${row.original._id}`}>
+                                                        <button
+                                                            type='button'
+                                                            className="btn inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700 mx-2"
+                                                        >
+                                                            Manage
+                                                        </button>
+                                                    </Link>
                                                 </td>
                                             </tr>
                                         )
@@ -188,6 +208,8 @@ const ManageFoods = () => {
                             </tbody>
                         </table>
                     </div>
+                   
+                 
                 </div>
             </div>
             {

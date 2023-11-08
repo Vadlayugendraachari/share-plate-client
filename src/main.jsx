@@ -12,6 +12,7 @@ import FoodDetails from './components/FoodDetails/FoodDetails.jsx';
 import PrivateRoutes from './Private/PrivateRoutes.jsx';
 import AddFood from './components/AddFood/AddFood.jsx';
 import ManageFood from './components/ManageFoods/ManageFoods.jsx';
+import ManageSingleFoodRequest from './components/ManageFoods/ManageSingleFoodRequest.jsx';
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,11 @@ const router = createBrowserRouter([
       {
         path:'/manage',
         element: <PrivateRoutes><ManageFood></ManageFood></PrivateRoutes>,
+      },
+      {
+        path:'/managesingle/:id',
+        element: <PrivateRoutes><ManageSingleFoodRequest></ManageSingleFoodRequest></PrivateRoutes>,
+        loader: ({params}) => fetch(`http://localhost:2003/requestedfood/${params.id}`)
       },
       {
         path:'/foods/details/:id',

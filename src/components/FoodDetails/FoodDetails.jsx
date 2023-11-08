@@ -23,32 +23,36 @@ const FoodDetails = () => {
         const donator_email = form.donatorEmail.value;
         const donator = form.donator.value;
         const user_email = form.userEmail.value;
+        const user_name = form.userName.value;
+        const user_image = form.userPhoto.value;
         const requested_date = form.requesteddate.value;
         const expire_date = form.expireDate.value;
         const pickup_location = form.pickPoint.value;
         const additional_notes = form.note.value;
         const donation_amount = parseInt(form.donationMoney.value);
-      
-        const requested_food = {food_image, food_name, food_id,donator_email,donator,user_email,requested_date
-            ,pickup_location,expire_date,additional_notes,donation_amount};
 
-         fetch('http://localhost:2003/requestedfood',{
-            method:'POST',
-            headers:{
-                'content-type' : 'application/json'
-            },body: JSON.stringify(requested_food)
-         })
-         .then(res => res.json())
-         .then(data => {
-            if(data.insertedId){
-                Swal.fire(
-                    'Congratulation!',
-                    'Your Request was successful',
-                    'success'
-                )
-            }
-         })   
-    
+        const requested_food = {
+            food_image, food_name, food_id, donator_email, donator, user_image, user_name, user_email, requested_date
+            , pickup_location, expire_date, additional_notes, donation_amount
+        };
+
+        fetch('http://localhost:2003/requestedfood', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            }, body: JSON.stringify(requested_food)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    Swal.fire(
+                        'Congratulation!',
+                        'Your Request was successful',
+                        'success'
+                    )
+                }
+            })
+
 
     }
 
@@ -184,6 +188,18 @@ const FoodDetails = () => {
                                                     <label htmlFor="donatorEmail" className="block text-sm mb-2">Donator Email</label>
                                                     <div className="relative">
                                                         <input type="email" name="donatorEmail" value={foodDetails?.donator_email} className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm shadow-[#0000001A] shadow-md" required aria-describedby="email-error" readOnly />
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <label htmlFor="userPhoto" className="block text-sm mb-2">Your Photo</label>
+                                                    <div className="relative">
+                                                        <input type="text" name="userPhoto" value={user?.photoURL} className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm shadow-[#0000001A] shadow-md" required aria-describedby="email-error" readOnly />
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <label htmlFor="userName" className="block text-sm mb-2">Your Name</label>
+                                                    <div className="relative">
+                                                        <input type="text" name="userName" value={user?.displayName} className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm shadow-[#0000001A] shadow-md" required aria-describedby="email-error" readOnly />
                                                     </div>
                                                 </div>
                                                 <div>

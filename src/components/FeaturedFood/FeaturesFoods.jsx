@@ -13,7 +13,7 @@ const FeaturesFoods = () => {
     return (
         <div className="max-w-6xl mx-auto my-8">
             <h1 className="text-center text-3xl font-bold underline my-4">Our Featured Foods</h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {
                     feaFoods.map(feafood => <FeatureFood feafood={feafood} key={feafood._id}></FeatureFood>)
                 }
