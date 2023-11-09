@@ -6,9 +6,9 @@ import { AuthContext } from '../../Provider/AuthProvider';
 import PulseLoader from 'react-spinners/PulseLoader'
 import { css } from "@emotion/react";
 import Swal from 'sweetalert2';
-import ManageSingleFoodRequest from './ManageSingleFoodRequest';
 import { Link } from 'react-router-dom';
 import PageTitle from '../PageTitle';
+import toast, { Toaster } from 'react-hot-toast';
 
 const ManageFoods = () => {
     const [loading, setLoading] = useState(true);
@@ -25,7 +25,7 @@ const ManageFoods = () => {
     const [manageFood, setManageFood] = useState([]);
   
     useEffect(() => {
-        axios.get(`https://community-food-sharing-server-ruddy.vercel.app/manageuserfood?email=${uerEmail}`)
+        axios.get(`http://localhost:2003/manageuserfood?email=${uerEmail}`)
             .then(res => {
                 // console.log(res.data)
                 setManageFood(res.data)
@@ -85,13 +85,9 @@ const ManageFoods = () => {
         setLoading(false);
     }
     const handleFormEdit = () => {
-        Swal.fire(
-            'Congratulation!',
-            'Food Details successfuly Updated',
-            'success'
-        )
+        toast.success('Details updated successfluy!');
         if (editedData) {
-            axios.put(`https://community-food-sharing-server-ruddy.vercel.app/manageuserfood?email=${editedData.donator_email}`, editedData)
+            axios.put(`http://localhost:2003/manageuserfood?email=${editedData.donator_email}`, editedData)
                 .then(res => {
                     console.log(res, 'data updated succesfuly')
                 })
@@ -112,26 +108,17 @@ const ManageFoods = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 const email = user.email;
-                axios.delete(`https://community-food-sharing-server-ruddy.vercel.app/manageuserfood?email=${email}`, email)
+                axios.delete(`http://localhost:2003/manageuserfood?email=${email}`, email)
                     .then(data => {
                         if (data.deletedCount > 0) {
-                            Swal.fire(
-                                'Congratulation!',
-                                'Data Deleted Successfuly',
-                                'success'
-                            )
+                            toast.success('Successfluy! Deleted');
                         }
                         window.location.reload();
-                        console.log(data)
 
                     }).catch((err) => {
                         console.log(err.message)
                     });
-                Swal.fire({
-                    title: "Deleted!",
-                    text: "Your file has been deleted.",
-                    icon: "success"
-                });
+                    toast.success('Successfluy! Deleted');
             }
         });
     }
@@ -268,12 +255,37 @@ const ManageFoods = () => {
                                         <input type="text" name="note" value={editedData?.additional_notes} onChange={e => setEditedData({ ...editedData, additional_notes: e.target.value })} className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm shadow-[#0000001A] shadow-md" required aria-describedby="email-error" />
                                     </div>
                                 </div>
-                                <button type="submit" className="py-3 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-indigo-500 text-white hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm">Update</button>
+                                <button type="submit" className="py-3 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-indigo-500 text-white hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 transition-all text-sm">Update</button>
                             </div>
                         </form>
                     </div>
                 )
             }
+            <Toaster
+                position="top-center"
+                reverseOrder={false}
+                gutter={8}
+                containerClassName=""
+                containerStyle={{}}
+                toastOptions={{
+                    // Define default options
+                    className: '',
+                    duration: 5000,
+                    style: {
+                        background: '#363636',
+                        color: '#fff',
+                    },
+
+                    // Default options for specific types
+                    success: {
+                        duration: 3000,
+                        theme: {
+                            primary: 'green',
+                            secondary: 'black',
+                        },
+                    },
+                }}
+            />
         </div>
     );
 };

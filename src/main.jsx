@@ -45,12 +45,12 @@ const router = createBrowserRouter([
       {
         path:'/managesingle/:id',
         element: <PrivateRoutes><ManageSingleFoodRequest></ManageSingleFoodRequest></PrivateRoutes>,
-        loader: ({params}) => fetch(`https://community-food-sharing-server-ruddy.vercel.app/requestedfood/${params.id}`)
+        loader: ({params}) => fetch(`http://localhost:2003/requestedfood/${params.id}`)
       },
       {
         path:'/foods/details/:id',
         element: <PrivateRoutes><FoodDetails></FoodDetails></PrivateRoutes>,
-        loader: ({params}) => fetch(`https://community-food-sharing-server-ruddy.vercel.app/foods/${params.id}`)
+        loader: ({params}) => fetch(`http://localhost:2003/foods/${params.id}`)
       },
       {
         path: '/login',

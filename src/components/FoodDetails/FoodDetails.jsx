@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { motion, AnimatePresence } from "framer-motion"
-import Swal from "sweetalert2";
+import toast, { Toaster } from 'react-hot-toast';
 const FoodDetails = () => {
 
     const foodDetails = useLoaderData();
@@ -37,7 +37,7 @@ const FoodDetails = () => {
             , pickup_location, expire_date, additional_notes, donation_amount
         };
 
-        fetch('https://community-food-sharing-server-ruddy.vercel.app/requestedfood', {
+        fetch('http://localhost:2003/requestedfood', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -46,11 +46,7 @@ const FoodDetails = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.insertedId) {
-                    Swal.fire(
-                        'Congratulation!',
-                        'Your Request was successful',
-                        'success'
-                    )
+                    toast.success('Your requested was successfl!');
                 }
             })
 
@@ -239,7 +235,7 @@ const FoodDetails = () => {
                                                         <input type="number" name="donationMoney" placeholder="0$" className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm shadow-[#0000001A] shadow-md" required />
                                                     </div>
                                                 </div>
-                                                <button type="submit" className="py-3 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-indigo-500 text-white hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm">Request</button>
+                                                <button type="submit" className="py-3 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-indigo-500 text-white hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-60000 focus:ring-offset-2 transition-all text-sm">Request</button>
                                             </div>
                                         </form>
                                     </div>
@@ -250,6 +246,31 @@ const FoodDetails = () => {
                 </motion.dl>
             </motion.div>
             <button></button>
+            <Toaster
+                position="top-center"
+                reverseOrder={false}
+                gutter={8}
+                containerClassName=""
+                containerStyle={{}}
+                toastOptions={{
+                    // Define default options
+                    className: '',
+                    duration: 5000,
+                    style: {
+                        background: '#363636',
+                        color: '#fff',
+                    },
+
+                    // Default options for specific types
+                    success: {
+                        duration: 3000,
+                        theme: {
+                            primary: 'green',
+                            secondary: 'black',
+                        },
+                    },
+                }}
+            />
         </AnimatePresence>
     );
 };

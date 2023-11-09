@@ -2,8 +2,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
-import Swal from "sweetalert2";
 import PageTitle from "../PageTitle";
+import toast, { Toaster } from 'react-hot-toast';
 const Registration = () => {
     const { signUpWithEmailandPassword, signUpUserWithGoogle, updateUser, user } = useContext(AuthContext);
     //Sign In With Google
@@ -18,23 +18,16 @@ const Registration = () => {
         const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
-        // console.log(name,photoURL, email, password)
 
         //Registration using email & pass
         signUpWithEmailandPassword(email, password)
             .then(res => {
                 updateUser(displayName, photoURL)
-                console.log(res.user)
-        
+                toast.success('Successfluy Regestered!');
             })
             .catch(error => {
                 const errMessage = error.message;
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...! Something went wrong!',
-                    text: errMessage,
-                    footer: '<a href="">Why do I have this issue?</a>'
-                })
+                toast.error('Oops! Something went wrong');
             })
 
             console.log(user)
@@ -87,22 +80,22 @@ const Registration = () => {
                             <form onSubmit={handleReginForm}>
                                 <div className="mb-4">
                                     <label className="block text-sm font-medium dark:text-white"><span className="sr-only">Email address</span></label>
-                                    <input type="text" name="name" className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 sm:p-4 " placeholder="Name" />
+                                    <input type="text" name="name" className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-indigo-600 focus:ring-indigo-600 sm:p-4 " placeholder="Name" />
                                 </div>
                                 <div className="mb-4">
                                     <label className="block text-sm font-medium dark:text-white"><span className="sr-only">Email address</span></label>
-                                    <input type="text" name="photoURL" className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 sm:p-4 " placeholder="Photo Url" />
+                                    <input type="text" name="photoURL" className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-indigo-600 focus:ring-indigo-600 sm:p-4 " placeholder="Photo Url" />
                                 </div>
                                 <div className="mb-4">
                                     <label className="block text-sm font-medium dark:text-white"><span className="sr-only">Email address</span></label>
-                                    <input type="email" name="email" className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 sm:p-4 " placeholder="Email address" />
+                                    <input type="email" name="email" className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-indigo-600 focus:ring-indigo-600 sm:p-4 " placeholder="Email address" />
                                 </div>
                                 <div className="mb-4">
                                     <label className="block text-sm font-medium dark:text-white"><span className="sr-only">Password</span></label>
-                                    <input type="password" name="password" className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:bg-blue-500 sm:p-4 " placeholder="Password" />
+                                    <input type="password" name="password" className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-indigo-600 focus:bg-indigo-600 sm:p-4 " placeholder="Password" />
                                 </div>
                                 <div className="grid">
-                                    <button type="submit" className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800 sm:p-4">Register</button>
+                                    <button type="submit" className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-indigo-600 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800 sm:p-4">Register</button>
                                     <Link className="text-white" to='/login'>Already a user? Login Here.</Link>
                                 </div>
                             </form>
@@ -111,6 +104,31 @@ const Registration = () => {
                     </div>
                 </div>
             </motion.div>
+            <Toaster
+                position="top-center"
+                reverseOrder={false}
+                gutter={8}
+                containerClassName=""
+                containerStyle={{}}
+                toastOptions={{
+                    // Define default options
+                    className: '',
+                    duration: 5000,
+                    style: {
+                        background: '#363636',
+                        color: '#fff',
+                    },
+
+                    // Default options for specific types
+                    success: {
+                        duration: 3000,
+                        theme: {
+                            primary: 'green',
+                            secondary: 'black',
+                        },
+                    },
+                }}
+            />
         </AnimatePresence>
     );
 };

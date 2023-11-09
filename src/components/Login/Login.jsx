@@ -1,20 +1,17 @@
 import { motion, AnimatePresence } from "framer-motion"
-import { ToastContainer, toast } from 'react-toastify';
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
-import Swal from "sweetalert2";
+import toast, { Toaster } from 'react-hot-toast';
 import PageTitle from "../PageTitle";
 import axios from "axios";
 const Login = () => {
-    const { signInUserWithEmailandPassword, signUpUserWithGoogle, user } = useContext(AuthContext);
+    const { signInUserWithEmailandPassword, signUpUserWithGoogle } = useContext(AuthContext);
     const handleGooleSignIn = () => {
         signUpUserWithGoogle()
             .then(res => {
                 console.log(res)
-                // const email = {res.email}
-                // console.log(email)
-                axios.post('https://community-food-sharing-server-ruddy.vercel.app/jwt', res.user.email ,{ withCredentials: true },)
+                axios.post('http://localhost:2003/jwt', res.user.email ,{ withCredentials: true },)
             })
     }
 
@@ -38,20 +35,11 @@ const Login = () => {
 
         signInUserWithEmailandPassword(email, password)
             .then(res => {
-                Swal.fire(
-                    'Congratulation!',
-                    'You successfuly Loged In!',
-                    'success'
-                )
+                toast.success('Successfluy loged in!');
             })
             .catch(error => {
                 const errMessage = error.message
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...! Something went wrong!',
-                    text: errMessage,
-                    footer: '<a href="">Why do I have this issue?</a>'
-                })
+                toast.error('Oops! Something went wrong.');
             })
     }
     const loginBg = {
@@ -102,14 +90,14 @@ const Login = () => {
                             <form onSubmit={handleLoginForm}>
                                 <div className="mb-4">
                                     <label className="block text-sm font-medium dark:text-white"><span className="sr-only">Email address</span></label>
-                                    <input type="email" name="email" className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 sm:p-4 " placeholder="Email address" />
+                                    <input type="email" name="email" className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-indigo-600 focus:ring-indigo-600 sm:p-4 " placeholder="Email address" />
                                 </div>
                                 <div className="mb-4">
                                     <label className="block text-sm font-medium dark:text-white"><span className="sr-only">Password</span></label>
-                                    <input type="password" name="password" className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 sm:p-4 " placeholder="Password" />
+                                    <input type="password" name="password" className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-indigo-600 focus:ring-indigo-600 sm:p-4 " placeholder="Password" />
                                 </div>
                                 <div className="grid">
-                                    <button type="submit" className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800 sm:p-4">Login</button>
+                                    <button type="submit" className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-indigo-600 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-indigo-60000 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800 sm:p-4">Login</button>
                                     <Link className="text-white" to="/reg">New User? Create your account </Link>
                                 </div>
                             </form>
@@ -118,19 +106,31 @@ const Login = () => {
                     </div>
                 </div>
             </motion.div>
-            <ToastContainer
-                position="top-right"
-                autoClose={1000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="dark"
-            />
-            <ToastContainer />
+            <Toaster
+            position="top-center"
+            reverseOrder={false}
+            gutter={8}
+            containerClassName=""
+            containerStyle={{}}
+            toastOptions={{
+                // Define default options
+                className: '',
+                duration: 5000,
+                style: {
+                    background: '#363636',
+                    color: '#fff',
+                },
+
+                // Default options for specific types
+                success: {
+                    duration: 3000,
+                    theme: {
+                        primary: 'green',
+                        secondary: 'black',
+                    },
+                },
+            }}
+        />
         </AnimatePresence>
     );
 };

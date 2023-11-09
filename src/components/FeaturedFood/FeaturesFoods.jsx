@@ -6,7 +6,7 @@ import FeatureFood from "./FeatureFood";
 const FeaturesFoods = () => {
     const [feaFoods, setFeaFoods] = useState([]);
     useEffect(() => {
-        fetch('https://community-food-sharing-server-ruddy.vercel.app/featurefoods')
+        fetch('http://localhost:2003/foods')
             .then(res => res.json())
             .then(data => setFeaFoods(data))
     }, [])
@@ -19,7 +19,7 @@ const FeaturesFoods = () => {
                 }
             </div>
             <div className="text-center my-8">
-                <Link to='avialabe' className="btn btn-ghost bg-indigo-500 text-white hover:bg-indigo-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ">Show All</Link>
+                <Link to='avialabe' className="btn btn-ghost bg-indigo-500 text-white hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-600000000 focus:ring-offset-2 ">Show All</Link>
             </div>
         </div>
     );

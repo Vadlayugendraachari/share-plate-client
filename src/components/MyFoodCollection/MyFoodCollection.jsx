@@ -9,7 +9,7 @@ const MyFoodCollection = () => {
     const { user } = useContext(AuthContext);
     const userEmail = user.email;
     useEffect(() => {
-        axios.get(`https://community-food-sharing-server-ruddy.vercel.app/myfoodrequest?email=${userEmail}`)
+        axios.get(`http://localhost:2003/myfoodrequest?email=${userEmail}`)
             .then(res => {
                 console.log(res.data)
                 setMyFood(res.data)

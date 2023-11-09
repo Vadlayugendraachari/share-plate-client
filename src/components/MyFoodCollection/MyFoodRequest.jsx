@@ -1,20 +1,15 @@
 import axios from "axios";
-import Swal from "sweetalert2";
+import toast, { Toaster } from 'react-hot-toast';
 const MyFoodRequest = ({myFood}) => {
     console.log(myFood)
     const {_id ,donator, pickup_location, requested_date, donation_amount} = myFood;
 
     const handleCencel = (_id) => {
      
-        axios.delete(`https://community-food-sharing-server-ruddy.vercel.app/myfoodrequest/${_id}`)
+        axios.delete(`http://localhost:2003/myfoodrequest/${_id}`)
         .then(res =>{
-            console.log(res.data)
             if(res.data.deletedCount > 0){
-                Swal.fire({
-                    title: "Deleted!",
-                    text: "Your file has been deleted.",
-                    icon: "success"
-                });
+                toast.success('Deleted!');
                 window.location.reload();
             }
         })
@@ -59,6 +54,31 @@ const MyFoodRequest = ({myFood}) => {
                 </dd>
             </div>
         </dl>
+        <Toaster
+                position="top-center"
+                reverseOrder={false}
+                gutter={8}
+                containerClassName=""
+                containerStyle={{}}
+                toastOptions={{
+                    // Define default options
+                    className: '',
+                    duration: 5000,
+                    style: {
+                        background: '#363636',
+                        color: '#fff',
+                    },
+
+                    // Default options for specific types
+                    success: {
+                        duration: 3000,
+                        theme: {
+                            primary: 'green',
+                            secondary: 'black',
+                        },
+                    },
+                }}
+            />
     </div>
     );
 };
