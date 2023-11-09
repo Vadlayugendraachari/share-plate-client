@@ -16,7 +16,7 @@ const AvailableFoods = () => {
     const [foods, setFoods] = useState([]);
     const [seachQuery, setSearchQuery] = useState('');
     const [sortOrder, setSortOrder] = useState('low to high')
-    const foodUrl = seachQuery ? `http://localhost:2003/foods?food_name=${seachQuery}` : 'http://localhost:2003/foods';
+    const foodUrl = seachQuery ? `https://community-food-sharing-server-ruddy.vercel.app/foods?food_name=${seachQuery}` : 'https://community-food-sharing-server-ruddy.vercel.app/foods';
 
     useEffect(() => {
 
@@ -50,13 +50,13 @@ const AvailableFoods = () => {
             <div className="w-full md:w-2/3 lg:w-1/2 mx-auto">
                 <label htmlFor="hs-hidden-select" className="sr-only">Label</label>
                 <select id="hs-hidden-select" onChange={handleSelect} value={sortOrder}
-                    className="py-3 px-4 pr-9 block w-full border-gray-200 rounded-md text-sm focus:border-[tomato] focus:ring-[tomato]">
+                    className="py-3 px-4 pr-9 block w-full border-gray-200 rounded-md text-sm focus:border-[tomato] focus:ring-[tomato]" data-aos="zoom-in-down">
                     <option value='High to Low'>High to Low</option>
                     <option value='Low to High'>Low to High</option>
                 </select>
                 <label htmlFor="hs-search-box-with-loading-5" className="block text-sm font-medium mb-2 dark:text-white">Search</label>
                 <div className="relative flex rounded-md shadow-sm">
-                    <input onChange={e => setSearchQuery(e.target.value)} type="text" id="hs-search-box-with-loading-5" name="serach" className="py-3 px-4 pl-11 block w-full border-gray-200 shadow-sm rounded-l-md text-sm focus:z-10 focus:border-indigo-600 outline-none" placeholder="Input search" />
+                    <input onChange={e => setSearchQuery(e.target.value)} type="text" id="hs-search-box-with-loading-5" name="serach" className="py-3 px-4 pl-11 block w-full border-gray-200 shadow-sm rounded-l-md text-sm focus:z-10 focus:border-indigo-600 outline-none" placeholder="Input search"  data-aos="zoom-in-down"/>
                     <div className="absolute inset-y-0 left-0 flex items-center pointer-events-none pl-4">
                         <svg className="h-4 w-4 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />

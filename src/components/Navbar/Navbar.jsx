@@ -1,18 +1,16 @@
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useContext } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import './Nav.css';
-import Swal from 'sweetalert2';
+
+import toast, { Toaster } from 'react-hot-toast';
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
     const email = user?.email;
     const handleLogOut = () => {
         logOut();
-        Swal.fire(
-            'You successfuly Loged Out!',
-            'success'
-        )
+        toast.success('Successfluy loged out!');
     }
     return (
         <motion.div
@@ -64,6 +62,31 @@ const Navbar = () => {
                     user ? <button onClick={handleLogOut} className="btn">Log Out</button> : <NavLink to='/login' className="btn">Login</NavLink>
                 }
             </div>
+            <Toaster
+            position="top-center"
+            reverseOrder={false}
+            gutter={8}
+            containerClassName=""
+            containerStyle={{}}
+            toastOptions={{
+                // Define default options
+                className: '',
+                duration: 5000,
+                style: {
+                    background: '#363636',
+                    color: '#fff',
+                },
+
+                // Default options for specific types
+                success: {
+                    duration: 3000,
+                    theme: {
+                        primary: 'green',
+                        secondary: 'black',
+                    },
+                },
+            }}
+        />
         </motion.div>
     );
 };

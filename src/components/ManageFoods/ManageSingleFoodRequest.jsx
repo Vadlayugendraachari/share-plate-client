@@ -10,7 +10,7 @@ const ManageSingleFoodRequest = () => {
     const updateStatus = { status: 'unavailable' }
     const handleStatus = (e) => {
         console.log(typeof (e))
-        axios.put(`http://localhost:2003/updatefoodstatus/${e}`, updateStatus)
+        axios.put(`https://community-food-sharing-server-ruddy.vercel.app/updatefoodstatus/${e}`, updateStatus)
             .then(res => {
                 toast.success('Status updated successfluy!');
             })

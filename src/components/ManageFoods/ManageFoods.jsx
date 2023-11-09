@@ -25,7 +25,7 @@ const ManageFoods = () => {
     const [manageFood, setManageFood] = useState([]);
   
     useEffect(() => {
-        axios.get(`http://localhost:2003/manageuserfood?email=${uerEmail}`)
+        axios.get(`https://community-food-sharing-server-ruddy.vercel.app/manageuserfood?email=${uerEmail}`)
             .then(res => {
                 // console.log(res.data)
                 setManageFood(res.data)
@@ -87,7 +87,7 @@ const ManageFoods = () => {
     const handleFormEdit = () => {
         toast.success('Details updated successfluy!');
         if (editedData) {
-            axios.put(`http://localhost:2003/manageuserfood?email=${editedData.donator_email}`, editedData)
+            axios.put(`https://community-food-sharing-server-ruddy.vercel.app/manageuserfood?email=${editedData.donator_email}`, editedData)
                 .then(res => {
                     console.log(res, 'data updated succesfuly')
                 })
@@ -108,7 +108,7 @@ const ManageFoods = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 const email = user.email;
-                axios.delete(`http://localhost:2003/manageuserfood?email=${email}`, email)
+                axios.delete(`https://community-food-sharing-server-ruddy.vercel.app/manageuserfood?email=${email}`, email)
                     .then(data => {
                         if (data.deletedCount > 0) {
                             toast.success('Successfluy! Deleted');
@@ -129,7 +129,7 @@ const ManageFoods = () => {
         <div className='max-w-6xl mx-auto my-8'>
         <PageTitle title='SharePlate | Manage My Foods'></PageTitle>
             <div>
-                <div>
+                <div data-aos="zoom-in-down">
                     <div className=' overflow-x-auto'>
                         <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm" {...getTableProps}>
                             <thead className="ltr:text-left rtl:text-right">
@@ -201,61 +201,61 @@ const ManageFoods = () => {
                     <div className="mt-5">
                         <form onSubmit={handleFormEdit}>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
-                                <div>
+                                <div data-aos="zoom-in-down">
                                     <label htmlFor="food_name" className="block text-sm mb-2">Food Name</label>
                                     <div className="relative">
                                         <input type="text" name="foodName" value={editedData?.food_name} onChange={e => setEditedData({ ...editedData, food_name: e.target.value })} className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm shadow-[#0000001A] shadow-md" required aria-describedby="email-error" />
                                     </div>
                                 </div>
-                                <div>
+                                <div data-aos="zoom-in-down">
                                     <label htmlFor="food_image" className="block text-sm mb-2">Food Image</label>
                                     <div className="relative">
                                         <input type="text" name="foodImage" value={editedData?.food_image} onChange={e => setEditedData({ ...editedData, food_image: e.target.value })} className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm shadow-[#0000001A] shadow-md" required aria-describedby="email-error" />
                                     </div>
                                 </div>
-                                <div>
+                                <div data-aos="zoom-in-down">
                                     <label htmlFor="food+_id" className="block text-sm mb-2">Food ID</label>
                                     <div className="relative">
                                         <input type="text" name="foodId" value={editedData?._id} className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm shadow-[#0000001A] shadow-md" required aria-describedby="email-error" readOnly />
                                     </div>
                                 </div>
-                                <div>
+                                <div data-aos="zoom-in-down">
                                     <label htmlFor="donator" className="block text-sm mb-2">Donator Name</label>
                                     <div className="relative">
                                         <input type="text" name="donator" value={editedData?.donator} onChange={e => setEditedData({ ...editedData, donator: e.target.value })} className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm shadow-[#0000001A] shadow-md" required aria-describedby="email-error" />
                                     </div>
                                 </div>
-                                <div>
+                                <div data-aos="zoom-in-down">
                                     <label htmlFor="donatorEmail" className="block text-sm mb-2">Donator Email</label>
                                     <div className="relative">
                                         <input type="email" name="donatorEmail" value={editedData?.donator_email} onChange={e => setEditedData({ ...editedData, donator_email: e.target.value })} className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm shadow-[#0000001A] shadow-md" required aria-describedby="email-error" />
                                     </div>
                                 </div>
-                                <div>
+                                <div data-aos="zoom-in-down">
                                     <label htmlFor="userEmail" className="block text-sm mb-2">Your Email</label>
                                     <div className="relative">
                                         <input type="text" name="userEmail" value={user?.email} className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm shadow-[#0000001A] shadow-md" required aria-describedby="email-error" readOnly />
                                     </div>
                                 </div>
-                                <div>
+                                <div data-aos="zoom-in-down">
                                     <label htmlFor="pickPoint" className="block text-sm mb-2">Pickup Location</label>
                                     <div className="relative">
                                         <input type="text" name="pickPoint" value={editedData?.pickup_location} onChange={e => setEditedData({ ...editedData, pickup_location: e.target.value })} className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm shadow-[#0000001A] shadow-md" required aria-describedby="email-error" />
                                     </div>
                                 </div>
-                                <div>
+                                <div data-aos="zoom-in-down">
                                     <label htmlFor="expireDate" className="block text-sm mb-2">Expire Date</label>
                                     <div className="relative">
                                         <input type="date" name="expireDate" value={editedData?.expire_date} onChange={e => setEditedData({ ...editedData, expire_date: e.target.value })} className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm shadow-[#0000001A] shadow-md" required aria-describedby="email-error" />
                                     </div>
                                 </div>
-                                <div>
+                                <div data-aos="zoom-in-down">
                                     <label htmlFor="note" className="block text-sm mb-2">Additional Notes</label>
                                     <div className="relative">
                                         <input type="text" name="note" value={editedData?.additional_notes} onChange={e => setEditedData({ ...editedData, additional_notes: e.target.value })} className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm shadow-[#0000001A] shadow-md" required aria-describedby="email-error" />
                                     </div>
                                 </div>
-                                <button type="submit" className="py-3 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-indigo-500 text-white hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 transition-all text-sm">Update</button>
+                                <button type="submit" data-aos="zoom-in-down" className="py-3 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-indigo-500 text-white hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 transition-all text-sm">Update</button>
                             </div>
                         </form>
                     </div>

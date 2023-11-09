@@ -41,7 +41,7 @@ const AuthProvider = ({ children }) => {
             setLoading(false)
             // if(currentUser){
             //     const loggdinUser = {email : currentUser.email};
-            //     axios.post('http://localhost:2003/' ,loggdinUser, {withCredentials: true})
+            //     axios.post('https://community-food-sharing-server-ruddy.vercel.app/' ,loggdinUser, {withCredentials: true})
             //     .then(res => {
             //         console.log(res.data)
             //     })

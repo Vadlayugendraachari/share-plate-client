@@ -6,7 +6,7 @@ import FeatureFood from "./FeatureFood";
 const FeaturesFoods = () => {
     const [feaFoods, setFeaFoods] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:2003/foods')
+        fetch('https://community-food-sharing-server-ruddy.vercel.app/featuredfood')
             .then(res => res.json())
             .then(data => setFeaFoods(data))
     }, [])

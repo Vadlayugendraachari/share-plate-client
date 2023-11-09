@@ -8,7 +8,7 @@ import { EffectCards } from 'swiper/modules';
 const Testies = () => {
     return (
         <AnimatePresence>
-            <motion.div className='max-w-6xl mx-auto my-12'>
+            <motion.div className='max-w-6xl mx-auto my-12' data-aos="zoom-in-down">
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-4 mx-4'>
                     <motion.div
                     initial={{ x: -300, opacity: 0 }}

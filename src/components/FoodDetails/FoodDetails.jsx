@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { motion, AnimatePresence } from "framer-motion"
 import toast, { Toaster } from 'react-hot-toast';
+import './foodDetails.css';
 const FoodDetails = () => {
 
     const foodDetails = useLoaderData();
@@ -37,7 +38,7 @@ const FoodDetails = () => {
             , pickup_location, expire_date, additional_notes, donation_amount
         };
 
-        fetch('http://localhost:2003/requestedfood', {
+        fetch('https://community-food-sharing-server-ruddy.vercel.app/requestedfood', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -49,12 +50,7 @@ const FoodDetails = () => {
                     toast.success('Your requested was successfl!');
                 }
             })
-
-
     }
-
-
-
     return (
         <AnimatePresence>
             <motion.div
@@ -144,15 +140,10 @@ const FoodDetails = () => {
                             {foodDetails?.additional_notes}
                         </dd>
                     </div>
-                    <div className="text-center">
-                        <button type="button" className="py-3 my-4 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-indigo-500 text-white hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-all text-sm " data-hs-overlay="#hs-modal-signin">
-                            Request
-                        </button>
-                    </div>
-
-                    <div id="hs-modal-signin" className="hs-overlay hidden w-full h-full fixed top-0 left-0 z-[60] overflow-x-hidden overflow-y-auto">
-                        <div className="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto">
-                            <div className="bg-white border border-gray-200 rounded-xl shadow-sm">
+                    {
+                        foodDetails && (
+                            <div className="bg-white border border-gray-200 rounded-xl shadow-sm my-8" id="reqcustomCss">
+                            <h1 className="text-center my-8 text-3xl font-bold underline">Request For This Food</h1>
                                 <div className="p-4 sm:p-7">
                                     <div className="mt-5">
                                         <form onSubmit={handleRequest}>
@@ -235,17 +226,16 @@ const FoodDetails = () => {
                                                         <input type="number" name="donationMoney" placeholder="0$" className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm shadow-[#0000001A] shadow-md" required />
                                                     </div>
                                                 </div>
-                                                <button type="submit" className="py-3 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-indigo-500 text-white hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-60000 focus:ring-offset-2 transition-all text-sm">Request</button>
+                                                <button type="submit" className="py-3 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-indigo-500 text-white hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-60000 focus:ring-offset-2 transition-all text-sm" id='reqcustomCss'>Request</button>
                                             </div>
                                         </form>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        )
+                    }
                 </motion.dl>
             </motion.div>
-            <button></button>
             <Toaster
                 position="top-center"
                 reverseOrder={false}

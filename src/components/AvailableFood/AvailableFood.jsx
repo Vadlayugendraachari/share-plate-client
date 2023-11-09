@@ -15,6 +15,7 @@ const AvailableFood = ({ food }) => {
                 initial={{ x: -300, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 exit={{ x: 300, opacity: 0 }}
+                data-aos="zoom-in-down"
                 className="px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
                 <div>
                     <div className="group flex flex-col h-full bg-white border border-gray-200 shadow-sm rounded-xl" id="customCss">

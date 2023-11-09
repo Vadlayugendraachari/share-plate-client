@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import PageTitle from "../PageTitle";
 
 
@@ -9,6 +10,7 @@ const AboutUs = () => {
             >
                 <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
                     <div
+                    data-aos="zoom-in-down"
                         className="relative h-64 overflow-hidden rounded-lg sm:h-80 lg:order-last lg:h-full"
                     >
                         <img
@@ -18,7 +20,7 @@ const AboutUs = () => {
                         />
                     </div>
 
-                    <div className="lg:py-24">
+                    <div className="lg:py-24" data-aos="zoom-in-down">
                         <h2 className="text-3xl font-bold sm:text-4xl mb-4">Our Story: Sharing the Goodness</h2>
 
                         <div className="mb-4">
@@ -46,12 +48,13 @@ const AboutUs = () => {
                             </p>
                         </div>
                         <p>Thank you for being a part of our journey. Together, we can share the goodness, one plate at a time.</p>
-                        <a
-                            href="#"
+                        <Link
+                        data-aos="zoom-in-down"
+                            to='/login'
                             className="mt-8 inline-block rounded bg-indigo-500 px-12 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 "
                         >
                             Get Started Today
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>
