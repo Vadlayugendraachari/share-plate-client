@@ -20,7 +20,7 @@ const AvailableFood = ({ food }) => {
                 <div>
                     <div className="group flex flex-col h-full bg-white border border-gray-200 shadow-sm rounded-xl" id="customCss">
                         <div className="h-52 flex flex-col justify-center items-center rounded-xl">
-                            <img className="rounded-t-xl" src={food_image} />
+                            <img className="rounded-t-xl w-fit overflow-hidden" src={food_image} />
                         </div>
                         <div className="p-4 md:p-6">
                             <span className="block mb-1 text-xs font-semibold uppercase text-[tomato]">

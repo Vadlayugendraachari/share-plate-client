@@ -51,8 +51,8 @@ const AvailableFoods = () => {
                 <label htmlFor="hs-hidden-select" className="sr-only">Label</label>
                 <select id="hs-hidden-select" onChange={handleSelect} value={sortOrder}
                     className="py-3 px-4 pr-9 block w-full border-gray-200 rounded-md text-sm focus:border-[tomato] focus:ring-[tomato]" data-aos="zoom-in-down">
-                    <option value='High to Low'>High to Low</option>
-                    <option value='Low to High'>Low to High</option>
+                    <option value='High to Low'>High to Low (Expire Date)</option>
+                    <option value='Low to High'>Low to High (Expire Date)</option>
                 </select>
                 <label htmlFor="hs-search-box-with-loading-5" className="block text-sm font-medium mb-2 dark:text-white">Search</label>
                 <div className="relative flex rounded-md shadow-sm">
