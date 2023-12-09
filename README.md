@@ -1,7 +1,5 @@
 # Share Plate - Connecting Communities Through Food
 
-[![Share Plate](https://streak-stats.demolab.com?user=ArnabTo&theme=soft-green&hide_border=true&border_radius=6&card_width=500)](https://arsdev-food-share.netlify.app/)
-
 Welcome to Share Plate, a dynamic Food Sharing Platform developed with the versatile MERN stack. This platform is designed to facilitate the seamless sharing of surplus food within communities.
 
 ## Key Features
@@ -24,14 +22,6 @@ Explore the live platform: [Share Plate](https://arsdev-food-share.netlify.app/)
 
 ## GitHub Repository
 
-Discover the codebase on GitHub: [Share Plate GitHub](https://github.com/ArnabTo/share-plate-client). Feel free to contribute, report issues, or suggest improvements – your collaboration is appreciated!
+Discover the server side on GitHub: [Share Plate GitHub](https://github.com/ArnabTo/share-plate-server).
 
-## Getting Started
 
-1. Clone the repository: `git clone https://github.com/ArnabTo/share-plate-client.git`
-2. Install dependencies: `npm install`
-3. Start the development server: `npm start`
-
-Your participation fuels the Share Plate community. Join us in making a positive impact!
-
-Happy sharing!
