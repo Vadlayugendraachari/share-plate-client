@@ -3,9 +3,10 @@ import AvailableFood from "./AvailableFood";
 import PulseLoader from 'react-spinners/PulseLoader'
 import { css } from "@emotion/react";
 import PageTitle from "../PageTitle";
-
+import { useTheme } from "../../hooks/ThemeContext";
 
 const AvailableFoods = () => {
+    const { darkMode } = useTheme();
     const override = css` // Style for the spinner
       display: block;
       margin: 0 auto;
@@ -46,7 +47,7 @@ const AvailableFoods = () => {
     return (
         <div className="max-w-6xl mx-auto my-8">
         <PageTitle title='SharePlate | Availabe Foods'></PageTitle>
-            <h1 className="text-center text-3xl font-extrabold underline my-4">Available Foods</h1>
+            <h1 className="text-center text-3xl font-extrabold underline my-4" style={{ color: darkMode ? 'tomato' : '#252525' }}>Available Foods</h1>
             <div className="w-full md:w-2/3 lg:w-1/2 mx-auto">
                 <label htmlFor="hs-hidden-select" className="sr-only">Label</label>
                 <select id="hs-hidden-select" onChange={handleSelect} value={sortOrder}

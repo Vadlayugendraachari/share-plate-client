@@ -4,8 +4,9 @@ import './Testies.css';
 import 'swiper/css';
 import 'swiper/css/effect-cards';
 import { EffectCards } from 'swiper/modules';
-
+import { useTheme } from '../../hooks/ThemeContext';
 const Testies = () => {
+    const { darkMode } = useTheme();
     return (
         <AnimatePresence>
             <motion.div className='max-w-6xl mx-auto my-12' data-aos="zoom-in-down">
@@ -15,8 +16,8 @@ const Testies = () => {
                     animate={{ x: 0, opacity: 1 }}
                     exit={{ x: 300, opacity: 0 }}
                     >
-                        <h2 className="text-3xl font-bold sm:text-4xl mb-4">Our Story: Sharing the Goodness</h2>
-                        <p className='text-gray-600'>
+                        <h2 className="text-3xl font-bold sm:text-4xl mb-4" style={{ color: darkMode ? 'tomato' : '#252525' }}>Our Story: Sharing the Goodness</h2>
+                        <p className='text-gray-600' style={{ color: darkMode ? 'white' : '#4b5563' }}>
                             Discover what our community members have to say about their food sharing experiences. From heartwarming stories to delicious culinary journeys, our members share their thoughts and experiences, showcasing the power of sharing a meal. Join us in this delightful food adventure, and become a part of our growing family. We're more than just a community; we&aposre a collection of shared moments, culinary passions, and lasting friendships.
                         </p>
                     </motion.div>

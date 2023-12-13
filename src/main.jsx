@@ -15,11 +15,11 @@ import ManageFood from './components/ManageFoods/ManageFoods.jsx';
 import ManageSingleFoodRequest from './components/ManageFoods/ManageSingleFoodRequest.jsx';
 import Errorpage from './Errorpage.jsx';
 import MyFoodCollection from './components/MyFoodCollection/MyFoodCollection.jsx';
-
+import { ThemeProvider } from './hooks/ThemeContext.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App></App>,
+    element:<ThemeProvider><App></App></ThemeProvider>,
     errorElement: <Errorpage></Errorpage> ,
     children: [
       {

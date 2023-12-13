@@ -2,7 +2,9 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import toast, { Toaster } from 'react-hot-toast';
 import PageTitle from "../PageTitle";
+import { useTheme } from "../../hooks/ThemeContext";
 const AddFood = () => {
+    const { darkMode } = useTheme();
     const { user } = useContext(AuthContext);
     const [status, setStatus] = useState('');
     const handleReginForm = (e) => {
@@ -46,8 +48,8 @@ const AddFood = () => {
             <PageTitle title='SharePlate | Add Food'></PageTitle>
             <div className="mx-auto max-w-screen-md px-4 sm:px-6 md:max-w-screen-xl md:py-20 lg:py-32 md:px-8">
                 <div className="w-full md:w-1/2 mx-auto">
-                    <h1 data-aos="zoom-in-down" className="text-3xl text-black font-bold md:text-4xl md:leading-tight lg:text-5xl lg:leading-tight">
-                        Be a Food Hero:  <span className="text-[tomato]">Add Your Extra Food Here</span>
+                    <h1 data-aos="zoom-in-down" className="text-3xl font-bold md:text-4xl md:leading-tight lg:text-5xl lg:leading-tight">
+                       <span style={{ color: darkMode ? 'white' : '#252525' }}>Be a Food Hero: </span>  <span className="text-[tomato]">Add Your Extra Food Here</span>
                     </h1>
                     <form onSubmit={handleReginForm}>
                         <div className="mb-4" data-aos="zoom-in-down">

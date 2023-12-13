@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import PageTitle from "../PageTitle";
-
+import { useTheme } from "../../hooks/ThemeContext";
 
 const AboutUs = () => {
+    const { darkMode } = useTheme();
     return (
         <section className="my-8">
             <div
@@ -21,33 +22,33 @@ const AboutUs = () => {
                     </div>
 
                     <div className="lg:py-24" data-aos="zoom-in-down">
-                        <h2 className="text-3xl font-bold sm:text-4xl mb-4">Our Story: Sharing the Goodness</h2>
+                        <h2 className="text-3xl font-bold sm:text-4xl mb-4" style={{ color: darkMode ? 'tomato' : '#252525' }}>Our Story: Sharing the Goodness</h2>
 
                         <div className="mb-4">
                             <h3 className="text-[tomato]">About Us</h3>
-                            <p className=" text-gray-600">
-                                Welcome to [Your Community Name], a passionate group of individuals committed to ending food waste and ensuring that no one goes to bed hungry. Our journey began with a simple idea – to connect surplus food with those who need it the most.
+                            <p className=" text-gray-600" style={{ color: darkMode ? 'white' : '#4b5563' }}>
+                                Welcome to SharePlate, a passionate group of individuals committed to ending food waste and ensuring that no one goes to bed hungry. Our journey began with a simple idea – to connect surplus food with those who need it the most.
                             </p>
                         </div>
                         <div className="mb-4">
                             <h3 className="text-[tomato]">Our Mission</h3>
-                            <p className=" text-gray-600">
-                                At [Your Community Name], we believe that every plate of food shared is a step towards a more sustainable and compassionate world. Our mission is to create a community where everyone can contribute to reducing food waste and providing nourishment to those in need. We aim to foster a sense of togetherness, one meal at a time.
+                            <p className=" text-gray-600" style={{ color: darkMode ? 'white' : '#4b5563' }}>
+                                At SharePlate, we believe that every plate of food shared is a step towards a more sustainable and compassionate world. Our mission is to create a community where everyone can contribute to reducing food waste and providing nourishment to those in need. We aim to foster a sense of togetherness, one meal at a time.
                             </p>
                         </div>
                         <div className="mb-4">
                             <h3 className="text-[tomato]">What We Do</h3>
-                            <p className=" text-gray-600">
+                            <p className=" text-gray-600" style={{ color: darkMode ? 'white' : '#4b5563' }}>
                                 We provide a platform for individuals, local businesses, and food enthusiasts to share their surplus food with those facing food insecurity. Our user-friendly website and mobile app make it easy for anyone to create food donation listings, and for recipients to find and collect food donations in their area.
                             </p>
                         </div>
                         <div className="mb-4">
                             <h3 className="text-[tomato]">Join Us</h3>
-                            <p className=" text-gray-600">
+                            <p className=" text-gray-600" style={{ color: darkMode ? 'white' : '#4b5563' }}>
                                 Whether you have extra food to share or you&aposre looking for a meal, we invite you to join our growing community. Together, we can make a difference in the lives of many and contribute to a more sustainable and compassionate world.
                             </p>
                         </div>
-                        <p>Thank you for being a part of our journey. Together, we can share the goodness, one plate at a time.</p>
+                        <p style={{ color: darkMode ? 'white' : '#4b5563' }}>Thank you for being a part of our journey. Together, we can share the goodness, one plate at a time.</p>
                         <Link
                         data-aos="zoom-in-down"
                             to='/login'

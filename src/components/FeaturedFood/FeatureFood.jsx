@@ -14,7 +14,7 @@ const FeatureFood = ({ feafood }) => {
 
     return (
         <AnimatePresence>
-            <div className="mx-auto bg-black h-fit rounded-2xl hover:shadow-none" id="customCss" data-aos="zoom-in-down">
+            <div className="mx-auto bg-black h-fit rounded-2xl hover:shadow-none" id="customCss" data-aos="zoom-in-down" >
                 <motion.div
                     initial={{ x: -300, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
