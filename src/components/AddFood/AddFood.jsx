@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import toast, { Toaster } from 'react-hot-toast';
 import PageTitle from "../PageTitle";
@@ -57,8 +57,8 @@ const AddFood = () => {
                             <input type="text" name="name" className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-indigo-600 focus:ring-indigo-600 sm:p-4 " placeholder="Food Name" required />
                         </div>
                         <div className="mb-4" data-aos="zoom-in-down">
-                            <label className="block text-sm font-medium dark:text-white"><span className="sr-only">Food Image</span></label>
-                            <input type="text" name="photoURL" className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-indigo-600 focus:ring-indigo-600 sm:p-4 " placeholder="Food Image" required />
+                            <label className="block text-sm font-medium dark:text-white"><span className="sr-only">Food Image URl</span></label>
+                            <input type="text" name="photoURL" className="py-3 px-4 block w-full rounded-md text-sm focus:border-indigo-600 focus:ring-indigo-600 border  border-gray-500 sm:p-4 " placeholder="Food Image" required />
                         </div>
                         <div className="mb-4" data-aos="zoom-in-down">
                             <label className="block text-sm font-medium dark:text-white"><span className="sr-only">Quantity</span></label>
@@ -74,7 +74,7 @@ const AddFood = () => {
                         </div>
                         <div className="mb-4" data-aos="zoom-in-down">
                             <label className="block text-sm font-medium dark:text-white"><span className="sr-only">Expire Time</span></label>
-                            <input type="number" name="time" className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-indigo-600 focus:ring-indigo-600 sm:p-4 " placeholder="Expire Time" required />
+                            <input type="date" name="time" className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-indigo-600 focus:ring-indigo-600 sm:p-4 " placeholder="Expire Time" required />
                         </div>
                         <div className="mb-4" data-aos="zoom-in-down">
                             <label className="block text-sm font-medium dark:text-white"><span className="sr-only">Additional Notes</span></label>
